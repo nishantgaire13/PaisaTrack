@@ -864,8 +864,9 @@ function renderTransactions() {
             const d = new Date(t.date);
             const day = d.toLocaleDateString('en-US', { weekday: 'long' }).toUpperCase();
             const dateMain = formatDateDisplay(t.date);
+            const photoIndicator = t.photo ? '<span class="tx-photo-indicator">📷</span>' : '';
             return `
-                <div class="tx-table-row" data-id="${t.id}">
+                <div class="tx-table-row" data-id="${t.id}" onclick="openTxDrawerById('${t.id}')">
                     <div class="tx-table-icon"><span class="tx-icon">${c.icon}</span></div>
                     <div>
                         <div class="tx-date-main">${dateMain}</div>
@@ -873,14 +874,14 @@ function renderTransactions() {
                     </div>
                     <div><span class="tx-cat-badge ${t.type === 'income' ? 'income' : ''}">${c.name}</span></div>
                     <div>
-                        <div class="tx-title">${escapeHtml(t.note)}</div>
+                        <div class="tx-title">${escapeHtml(t.note)}${photoIndicator}</div>
                         <div class="tx-sub">${escapeHtml(t.description || c.desc)}</div>
                     </div>
                     <div class="tx-table-amount">
                         <span class="${t.type === 'income' ? 'emerald' : 'red'}">${t.type === 'income' ? '+' : '−'} ${formatNPR(t.amount)}</span>
                         <div class="tx-actions">
-                            <button class="tx-action-btn" onclick="editTransaction('${t.id}')" aria-label="Edit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
-                            <button class="tx-action-btn delete" onclick="deleteTransaction('${t.id}')" aria-label="Delete"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-2 14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L5 6"/></svg></button>
+                            <button class="tx-action-btn" onclick="event.stopPropagation(); editTransaction('${t.id}')" aria-label="Edit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></button>
+                            <button class="tx-action-btn delete" onclick="event.stopPropagation(); deleteTransaction('${t.id}')" aria-label="Delete"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-2 14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L5 6"/></svg></button>
                         </div>
                     </div>
                 </div>
@@ -955,6 +956,7 @@ function openTxModal(existing = null) {
         document.getElementById('txDate').value = existing.date;
         document.getElementById('txNote').value = existing.note || '';
         document.getElementById('txDescription').value = existing.description || '';
+        updatePhotoInModal(existing);
     } else {
         document.getElementById('txId').value = '';
         modalType = 'expense';
@@ -962,13 +964,171 @@ function openTxModal(existing = null) {
         document.getElementById('txDate').value = new Date().toISOString().slice(0, 10);
         document.getElementById('txNote').value = '';
         document.getElementById('txDescription').value = '';
+        updatePhotoInModal(null);
     }
 
     updateTypeToggle();
     populateModalCategories(existing?.category);
 }
 
-function closeTxModal() { document.getElementById('txModal').classList.add('hidden'); }
+function closeTxModal() {
+    document.getElementById('txModal').classList.add('hidden');
+    currentPhoto = null;
+    updatePhotoInModal(null);
+}
+
+// ---------- Transaction Drawer ----------
+let currentDrawerTx = null;
+
+function openTxDrawer(tx) {
+    currentDrawerTx = tx;
+    const c = getCategory(tx.category);
+    const isIncome = tx.type === 'income';
+
+    let photoHtml = '';
+    if (tx.photo) {
+        photoHtml = `<div class="drawer-photo"><img src="${tx.photo}" alt="Transaction photo"></div>`;
+    }
+
+    document.getElementById('drawerContent').innerHTML = `
+        <div class="drawer-category">
+            <div class="drawer-category-icon">${c.icon}</div>
+            <div class="drawer-category-info">
+                <span class="drawer-category-name">${c.name}</span>
+                <span class="drawer-type-badge ${tx.type}">${tx.type.toUpperCase()}</span>
+            </div>
+        </div>
+        <div class="drawer-amount ${tx.type}">${isIncome ? '+' : '−'} ${formatNPR(tx.amount)}</div>
+        <div class="drawer-detail-row">
+            <span class="drawer-label">DATE</span>
+            <span class="drawer-value">${formatDateDisplay(tx.date)}</span>
+        </div>
+        <div class="drawer-detail-row">
+            <span class="drawer-label">MERCHANT / TITLE</span>
+            <span class="drawer-value">${escapeHtml(tx.note)}</span>
+        </div>
+        <div class="drawer-detail-row">
+            <span class="drawer-label">DESCRIPTION</span>
+            <span class="drawer-value ${tx.description ? '' : 'muted'}">${escapeHtml(tx.description) || 'No description'}</span>
+        </div>
+        ${photoHtml}
+    `;
+
+    document.getElementById('txDrawerBackdrop').classList.remove('hidden');
+    document.getElementById('txDrawer').classList.remove('hidden');
+    document.getElementById('txDrawer').classList.add('active');
+}
+
+function closeTxDrawer() {
+    document.getElementById('txDrawerBackdrop').classList.add('hidden');
+    document.getElementById('txDrawer').classList.remove('active');
+    document.getElementById('txDrawer').classList.add('hidden');
+    currentDrawerTx = null;
+}
+
+function editFromDrawer() {
+    if (currentDrawerTx) {
+        closeTxDrawer();
+        openTxModal(currentDrawerTx);
+    }
+}
+
+async function deleteFromDrawer() {
+    if (currentDrawerTx) {
+        const ok = await confirmDialog('Delete transaction?', 'This entry will be permanently removed from your ledger.');
+        if (ok) {
+            state.transactions = state.transactions.filter(t => t.id !== currentDrawerTx.id);
+            saveTx();
+            toast('Transaction deleted');
+            closeTxDrawer();
+            route();
+        }
+    }
+}
+
+function openTxDrawerById(id) {
+    const tx = state.transactions.find(t => t.id === id);
+    if (tx) openTxDrawer(tx);
+}
+
+// ---------- Photo Upload ----------
+let currentPhoto = null;
+
+function setupPhotoUpload() {
+    const zone = document.getElementById('photoUploadZone');
+    const input = document.getElementById('txPhoto');
+    const preview = document.getElementById('photoPreview');
+    const previewImg = document.getElementById('photoPreviewImg');
+    const removeBtn = document.getElementById('photoRemoveBtn');
+
+    zone.addEventListener('click', () => input.click());
+
+    zone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        zone.style.borderColor = 'var(--emerald)';
+    });
+
+    zone.addEventListener('dragleave', () => {
+        zone.style.borderColor = '';
+    });
+
+    zone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        zone.style.borderColor = '';
+        if (e.dataTransfer.files.length) {
+            handlePhotoFile(e.dataTransfer.files[0]);
+        }
+    });
+
+    input.addEventListener('change', () => {
+        if (input.files.length) {
+            handlePhotoFile(input.files[0]);
+        }
+    });
+
+    removeBtn.addEventListener('click', () => {
+        currentPhoto = null;
+        preview.classList.add('hidden');
+        previewImg.src = '';
+        input.value = '';
+    });
+}
+
+function handlePhotoFile(file) {
+    if (!file.type.match(/image\/(jpeg|png|webp)/)) {
+        toast('Only JPG, PNG, and WEBP images are allowed', 'error');
+        return;
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+        toast('Image must be under 5MB', 'error');
+        return;
+    }
+
+    if (file.size > 2 * 1024 * 1024) {
+        toast('Large image — this may use significant storage space', 'error');
+    }
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        currentPhoto = e.target.result;
+        document.getElementById('photoPreviewImg').src = currentPhoto;
+        document.getElementById('photoPreview').classList.remove('hidden');
+    };
+    reader.readAsDataURL(file);
+}
+
+function updatePhotoInModal(existingTx) {
+    if (existingTx && existingTx.photo) {
+        currentPhoto = existingTx.photo;
+        document.getElementById('photoPreviewImg').src = existingTx.photo;
+        document.getElementById('photoPreview').classList.remove('hidden');
+    } else {
+        currentPhoto = null;
+        document.getElementById('photoPreviewImg').src = '';
+        document.getElementById('photoPreview').classList.add('hidden');
+    }
+}
 
 function updateTypeToggle() {
     document.querySelectorAll('.type-btn').forEach(b => b.classList.toggle('active', b.dataset.type === modalType));
@@ -1005,11 +1165,13 @@ function submitTxForm(e) {
         return;
     }
 
+    const photoMsg = currentPhoto ? ' with photo' : '';
+
     if (id) {
         const idx = state.transactions.findIndex(t => t.id === id);
         if (idx >= 0) {
-            state.transactions[idx] = { ...state.transactions[idx], type: modalType, amount, category, date, note, description };
-            toast('Transaction updated');
+            state.transactions[idx] = { ...state.transactions[idx], type: modalType, amount, category, date, note, description, photo: currentPhoto || null };
+            toast('Transaction updated' + photoMsg);
         }
     } else {
         state.transactions.push({
@@ -1020,12 +1182,14 @@ function submitTxForm(e) {
             date,
             note,
             description,
+            photo: currentPhoto || null,
             createdAt: new Date().toISOString()
         });
-        toast('Transaction added');
+        toast('Transaction added' + photoMsg);
     }
     saveTx();
     closeTxModal();
+    currentPhoto = null;
     route();
 }
 
@@ -1113,6 +1277,95 @@ function copyLastMonthBudget() {
     saveBudgets();
     toast('Copied budget from ' + monthLabel(prevKey));
     renderBudget();
+}
+
+// ---------- Budget Month Navigation ----------
+const MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+function updateBudgetMonthNav() {
+    const currentMonthKey = monthKey(new Date());
+    const nextBtn = document.getElementById('nextMonthBtn');
+    const prevBtn = document.getElementById('prevMonthBtn');
+
+    // Disable next button if on current month
+    nextBtn.disabled = state.budgetMonth >= currentMonthKey;
+
+    // Disable prev button if on oldest allowed month (e.g., 2020)
+    const [year, month] = state.budgetMonth.split('-').map(Number);
+    prevBtn.disabled = year <= 2020 && month <= 1;
+}
+
+function navigateBudgetMonth(direction) {
+    const [year, month] = state.budgetMonth.split('-').map(Number);
+    let newYear = year;
+    let newMonth = month + direction;
+
+    if (newMonth < 1) {
+        newMonth = 12;
+        newYear--;
+    } else if (newMonth > 12) {
+        newMonth = 1;
+        newYear++;
+    }
+
+    state.budgetMonth = `${newYear}-${String(newMonth).padStart(2, '0')}`;
+    renderBudget();
+    updateBudgetMonthNav();
+}
+
+function toggleMonthSelector() {
+    const dropdown = document.getElementById('monthSelectorDropdown');
+    const isActive = dropdown.classList.contains('active');
+
+    if (!isActive) {
+        const [year, month] = state.budgetMonth.split('-').map(Number);
+        document.getElementById('selectorYear').textContent = year;
+        renderMonthSelectorGrid(year, month);
+    }
+
+    dropdown.classList.toggle('active');
+}
+
+function renderMonthSelectorGrid(year, selectedMonth) {
+    const grid = document.getElementById('monthSelectorGrid');
+    const currentYear = new Date().getFullYear();
+    const currentMonth = new Date().getMonth() + 1;
+
+    const isCurrentYear = year === currentYear;
+    const isPastYear = year < currentYear;
+
+    grid.innerHTML = MONTH_NAMES.map((name, idx) => {
+        const monthNum = idx + 1;
+        const isSelected = monthNum === selectedMonth;
+        const isFuture = isCurrentYear && monthNum > currentMonth;
+        const isDisabled = !isPastYear && isFuture;
+
+        return `<button class="month-selector-btn ${isSelected ? 'selected' : ''}"
+            ${isDisabled ? 'disabled' : ''}
+            data-month="${monthNum}">${name}</button>`;
+    }).join('');
+
+    // Add click handlers
+    grid.querySelectorAll('.month-selector-btn:not([disabled])').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const month = parseInt(btn.dataset.month);
+            state.budgetMonth = `${year}-${String(month).padStart(2, '0')}`;
+            document.getElementById('monthSelectorDropdown').classList.remove('active');
+            renderBudget();
+            updateBudgetMonthNav();
+        });
+    });
+
+    // Update year nav buttons
+    document.getElementById('prevYearBtn').disabled = year <= 2020;
+    document.getElementById('nextYearBtn').disabled = year >= currentYear;
+}
+
+function navigateSelectorYear(direction) {
+    const currentYear = parseInt(document.getElementById('selectorYear').textContent);
+    const newYear = currentYear + direction;
+    const [year, month] = state.budgetMonth.split('-').map(Number);
+    renderMonthSelectorGrid(newYear, month);
 }
 
 // ============================================================================
@@ -1972,9 +2225,19 @@ function init() {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closeTxModal();
+            closeTxDrawer();
             document.getElementById('confirmModal').classList.add('hidden');
         }
     });
+
+    // Transaction drawer
+    document.getElementById('txDrawerBackdrop').addEventListener('click', closeTxDrawer);
+    document.getElementById('drawerCloseBtn').addEventListener('click', closeTxDrawer);
+    document.getElementById('drawerEditBtn').addEventListener('click', editFromDrawer);
+    document.getElementById('drawerDeleteBtn').addEventListener('click', deleteFromDrawer);
+
+    // Photo upload
+    setupPhotoUpload();
 
     // Type toggle
     document.querySelectorAll('.type-btn').forEach(b => {
@@ -2028,6 +2291,7 @@ function init() {
         if (e.target.value) {
             state.budgetMonth = e.target.value;
             renderBudget();
+            updateBudgetMonthNav();
         }
     });
     document.getElementById('saveBudgetBtn').addEventListener('click', saveBudgetFromInputs);
@@ -2035,6 +2299,36 @@ function init() {
     document.getElementById('addCategoryBtn').addEventListener('click', () => {
         toast('All default Nepal categories are already listed. Set a value to activate.', 'error');
     });
+
+    // Budget month navigation
+    document.getElementById('prevMonthBtn').addEventListener('click', () => navigateBudgetMonth(-1));
+    document.getElementById('nextMonthBtn').addEventListener('click', () => navigateBudgetMonth(1));
+    document.getElementById('budgetMonthBtn').addEventListener('click', toggleMonthSelector);
+    document.getElementById('prevYearBtn').addEventListener('click', () => navigateSelectorYear(-1));
+    document.getElementById('nextYearBtn').addEventListener('click', () => navigateSelectorYear(1));
+
+    // Close month selector when clicking outside
+    document.addEventListener('click', (e) => {
+        const dropdown = document.getElementById('monthSelectorDropdown');
+        const wrapper = document.querySelector('.month-pill-wrapper');
+        if (!wrapper.contains(e.target)) {
+            dropdown.classList.remove('active');
+        }
+    });
+
+    // Keyboard navigation for budget page
+    document.addEventListener('keydown', (e) => {
+        if (location.hash === '#budget' && !e.target.matches('input, textarea')) {
+            if (e.key === 'ArrowLeft') {
+                navigateBudgetMonth(-1);
+            } else if (e.key === 'ArrowRight') {
+                navigateBudgetMonth(1);
+            }
+        }
+    });
+
+    // Initial state
+    updateBudgetMonthNav();
 
     // Calendar toggle
     document.getElementById('calToggleBtn').addEventListener('click', () => {
