@@ -111,14 +111,20 @@ function showLogin() {
     document.getElementById('loginBox').style.display = 'block';
     document.getElementById('signupBox').style.display = 'none';
     document.getElementById('confirmPinBox').style.display = 'none';
+    // Reset both PIN arrays to prevent cross-contamination
     clearLoginPin();
+    clearSignupPin();
+    clearConfirmPin();
 }
 
 function showSignup() {
     document.getElementById('signupBox').style.display = 'block';
     document.getElementById('loginBox').style.display = 'none';
     document.getElementById('confirmPinBox').style.display = 'none';
+    // Reset both PIN arrays to prevent cross-contamination
+    clearLoginPin();
     clearSignupPin();
+    clearConfirmPin();
 }
 
 // Login PIN Keypad
@@ -140,7 +146,7 @@ function clearLoginPin() {
 function updateLoginPinDisplay() {
     for (let i = 0; i < 4; i++) {
         const dot = document.getElementById('loginPinDot' + i);
-        dot.classList.toggle('filled', i < loginPin.length);
+        if (dot) dot.classList.toggle('filled', i < loginPin.length);
     }
 }
 
@@ -157,12 +163,14 @@ function submitLogin() {
 
     if (pin.length !== 4) {
         showLoginError('Please enter your 4-digit PIN');
+        clearLoginPin();
         return;
     }
 
     const auth = getStoredAuth();
     if (!auth) {
         showLoginError('No vault found. Create one first.');
+        clearLoginPin();
         return;
     }
 
@@ -230,7 +238,7 @@ function clearSignupPin() {
 function updateSignupPinDisplay() {
     for (let i = 0; i < 4; i++) {
         const dot = document.getElementById('signupPinDot' + i);
-        dot.classList.toggle('filled', i < signupPin.length);
+        if (dot) dot.classList.toggle('filled', i < signupPin.length);
     }
 }
 
@@ -272,18 +280,11 @@ function clearConfirmPin() {
 function updateConfirmPinDisplay() {
     for (let i = 0; i < 4; i++) {
         const dot = document.getElementById('confirmPinDot' + i);
-        dot.classList.toggle('filled', i < confirmPinValue.length);
+        if (dot) dot.classList.toggle('filled', i < confirmPinValue.length);
     }
 }
 
 function finishSignup() {
-    if (confirmPinValue !== signupPin) {
-        document.getElementById('confirmPinError').style.display = 'flex';
-        confirmPinValue = '';
-        updateConfirmPinDisplay();
-        return;
-    }
-
     const name = document.getElementById('signupName').value.trim();
     const username = document.getElementById('signupUsername').value.trim();
 
@@ -302,6 +303,18 @@ function finishSignup() {
         return;
     }
 
+    if (signupPin.length !== 4) {
+        toast('Please enter your 4-digit PIN', 'error');
+        return;
+    }
+
+    if (confirmPinValue !== signupPin) {
+        document.getElementById('confirmPinError').style.display = 'flex';
+        confirmPinValue = '';
+        updateConfirmPinDisplay();
+        return;
+    }
+
     // Check if user already exists
     const existingAuth = getStoredAuth();
     if (existingAuth && existingAuth.username) {
@@ -314,12 +327,16 @@ function finishSignup() {
         isLoggedIn: true,
         name: name,
         username: username,
-        pin: confirmPinValue
+        pin: signupPin
     });
 
     // Update state settings
     state.settings.userName = name;
     localStorage.setItem(STORAGE.SETTINGS, JSON.stringify(state.settings));
+
+    // Clear PINs after successful signup
+    signupPin = '';
+    confirmPinValue = '';
 
     hideLanding();
     updateAvatar();
@@ -336,9 +353,10 @@ function logout() {
         setStoredAuth(auth);
     }
 
-    // Clear login form
-    loginPin = '';
+    // Clear all PIN arrays and form fields
     clearLoginPin();
+    clearSignupPin();
+    clearConfirmPin();
     document.getElementById('loginUser').value = '';
 
     // Close profile modal
@@ -1597,7 +1615,7 @@ function nextOnboardingStep(currentStep) {
     updateOnboardingStep();
 }
 
-function goToConfirmPin() {
+function goToConfirmPinOnboarding() {
     if (onboardingPin.length !== 4) {
         toast('Please enter a 4-digit PIN', 'error');
         return;
@@ -1615,7 +1633,7 @@ function addOnboardingPinDigit(digit) {
     onboardingPin += digit;
     updateOnboardingPinDisplay();
     if (onboardingPin.length === 4) {
-        setTimeout(goToConfirmPin, 300);
+        setTimeout(goToConfirmPinOnboarding, 300);
     }
 }
 
