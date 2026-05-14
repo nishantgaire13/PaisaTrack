@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaisaTrack - Private Wealth Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ==========================================
+         LANDING PAGE
+    ========================================== -->
+    <div class="landing-page" id="landingPage">
+        <!-- Animated Background -->
+        <div class="landing-bg-grid"></div>
+        <div class="landing-particles" id="particles"></div>
+
+        <!-- SECTION 1: HERO -->
+        <section class="landing-hero-section" id="heroSection">
+            <div class="hero-content">
+                <div class="hero-brand">
+                    <h1 class="hero-logo">Paisa<span>Track</span></h1>
+                    <p class="hero-tagline">PRIVATE WEALTH MANAGEMENT</p>
+                </div>
+                <h2 class="hero-headline">
+                    Your sovereign<br>
+                    financial <span class="gold-text">vault</span>.
+                </h2>
+                <p class="hero-subtext">
+                    Track every paisa. Built for clarity.<br>
+                    100% private. Your data never leaves your device.
+                </p>
+                <div class="hero-actions">
+                    <button class="hero-btn hero-btn-primary" onclick="scrollToLogin()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        ENTER VAULT
+                    </button>
+                    <button class="hero-btn hero-btn-ghost" onclick="scrollToFeatures()">
+                        SEE HOW IT WORKS
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="vault-icon">
+                    <svg viewBox="0 0 120 120" fill="none">
+                        <circle cx="60" cy="60" r="55" stroke="var(--emerald)" stroke-width="2" opacity="0.3"/>
+                        <circle cx="60" cy="60" r="45" stroke="var(--emerald)" stroke-width="1" opacity="0.2"/>
+                        <rect x="30" y="35" width="60" height="50" rx="8" stroke="var(--emerald)" stroke-width="2"/>
+                        <circle cx="60" cy="55" r="8" fill="var(--emerald)" opacity="0.6"/>
+                        <rect x="55" y="55" width="10" height="15" fill="var(--emerald)" opacity="0.4"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: FEATURES -->
+        <section class="landing-features-section" id="featuresSection">
+            <div class="section-header">
+                <p class="section-eyebrow">FEATURES</p>
+                <h2 class="section-title">Everything you need to manage your wealth</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                    </div>
+                    <h3 class="feature-title">Budget Tracking</h3>
+                    <p class="feature-desc">Set monthly budgets per category. Know exactly where your money goes.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></svg>
+                    </div>
+                    <h3 class="feature-title">Expense Breakdown</h3>
+                    <p class="feature-desc">Visual breakdowns of every transaction. No surprises.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    </div>
+                    <h3 class="feature-title">Monthly Reports</h3>
+                    <p class="feature-desc">Trends, averages, income vs expense — your full financial picture.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon-wrap">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    </div>
+                    <h3 class="feature-title">100% Private</h3>
+                    <p class="feature-desc">AES-256 local storage. Your data never leaves your device.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: HOW IT WORKS -->
+        <section class="landing-how-section" id="howSection">
+            <div class="section-header">
+                <p class="section-eyebrow">HOW IT WORKS</p>
+                <h2 class="section-title">Three simple steps to financial clarity</h2>
+            </div>
+            <div class="how-steps">
+                <div class="how-step">
+                    <div class="step-number">01</div>
+                    <h3 class="step-title">Create Your Vault</h3>
+                    <p class="step-desc">Set up your secure vault with a username and PIN. Your personal financial sanctuary.</p>
+                </div>
+                <div class="how-step-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+                <div class="how-step">
+                    <div class="step-number">02</div>
+                    <h3 class="step-title">Log Your Activity</h3>
+                    <p class="step-desc">Record income and expenses as they happen. Quick, easy, no friction.</p>
+                </div>
+                <div class="how-step-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
+                <div class="how-step">
+                    <div class="step-number">03</div>
+                    <h3 class="step-title">Track & Grow</h3>
+                    <p class="step-desc">Monitor budgets, analyze trends, and watch your wealth grow over time.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3.5: WATCH IT IN ACTION -->
+        <section class="watch-section" id="watchSection">
+            <div class="section-header">
+                <p class="section-eyebrow">WATCH IT IN ACTION</p>
+                <h2 class="section-title">See how PaisaTrack works before you create your vault.</h2>
+            </div>
+            <div class="watch-container">
+                <div class="watch-tabs">
+                    <button class="watch-tab active" data-step="1" onclick="showDemoStep(1)">
+                        <span class="tab-number">01</span>
+                        <span class="tab-title">CREATE YOUR VAULT</span>
+                        <span class="tab-subtitle">Set up your private vault in seconds</span>
+                    </button>
+                    <button class="watch-tab" data-step="2" onclick="showDemoStep(2)">
+                        <span class="tab-number">02</span>
+                        <span class="tab-title">SET YOUR MONTHLY BUDGET</span>
+                        <span class="tab-subtitle">Allocate across categories</span>
+                    </button>
+                    <button class="watch-tab" data-step="3" onclick="showDemoStep(3)">
+                        <span class="tab-number">03</span>
+                        <span class="tab-title">LOG YOUR TRANSACTIONS</span>
+                        <span class="tab-subtitle">Add income or expenses in seconds</span>
+                    </button>
+                    <button class="watch-tab" data-step="4" onclick="showDemoStep(4)">
+                        <span class="tab-number">04</span>
+                        <span class="tab-title">SEE YOUR BREAKDOWN</span>
+                        <span class="tab-subtitle">Visual charts by category</span>
+                    </button>
+                    <button class="watch-tab" data-step="5" onclick="showDemoStep(5)">
+                        <span class="tab-number">05</span>
+                        <span class="tab-title">STAY IN CONTROL</span>
+                        <span class="tab-subtitle">Full financial picture at a glance</span>
+                    </button>
+                </div>
+                <div class="watch-preview">
+                    <div class="preview-label">● LIVE PREVIEW</div>
+                    <div class="preview-screen" id="previewScreen">
+                        <!-- Step 1: Create Vault -->
+                        <div class="preview-content active" id="preview1">
+                            <div class="mock-app">
+                                <div class="mock-header">
+                                    <span class="mock-brand">PaisaTrack</span>
+                                    <span class="mock-tag">PRIVATE WEALTH</span>
+                                </div>
+                                <div class="mock-card">
+                                    <h4 class="mock-card-title">CREATE YOUR VAULT</h4>
+                                    <div class="mock-input-group">
+                                        <label class="mock-label">USERNAME</label>
+                                        <div class="mock-input">@nishantg</div>
+                                    </div>
+                                    <div class="mock-input-group">
+                                        <label class="mock-label">FULL NAME</label>
+                                        <div class="mock-input">Nishant Gaire</div>
+                                    </div>
+                                    <div class="mock-input-group">
+                                        <label class="mock-label">CREATE PIN</label>
+                                        <div class="mock-pin-dots">
+                                            <span class="mock-dot filled"></span>
+                                            <span class="mock-dot filled"></span>
+                                            <span class="mock-dot filled"></span>
+                                            <span class="mock-dot"></span>
+                                        </div>
+                                    </div>
+                                    <button class="mock-btn-primary">Create Vault</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Step 2: Set Budget -->
+                        <div class="preview-content" id="preview2">
+                            <div class="mock-app">
+                                <div class="mock-header">
+                                    <span class="mock-brand">PaisaTrack</span>
+                                    <span class="mock-tag">PRIVATE WEALTH</span>
+                                </div>
+                                <div class="mock-page-title">Monthly Budget</div>
+                                <div class="mock-budget-grid">
+                                    <div class="mock-budget-row">
+                                        <span class="mock-cat">🍛 Food & Dining</span>
+                                        <div class="mock-budget-bar" style="width: 80%"></div>
+                                        <span class="mock-budget-amount">Rs. 8,000</span>
+                                    </div>
+                                    <div class="mock-budget-row">
+                                        <span class="mock-cat">🚌 Transport</span>
+                                        <div class="mock-budget-bar" style="width: 60%"></div>
+                                        <span class="mock-budget-amount">Rs. 4,000</span>
+                                    </div>
+                                    <div class="mock-budget-row">
+                                        <span class="mock-cat">🎬 Entertainment</span>
+                                        <div class="mock-budget-bar" style="width: 30%"></div>
+                                        <span class="mock-budget-amount">Rs. 1,500</span>
+                                    </div>
+                                    <div class="mock-budget-row">
+                                        <span class="mock-cat">🏠 Rent</span>
+                                        <div class="mock-budget-bar" style="width: 100%"></div>
+                                        <span class="mock-budget-amount">Rs. 15,000</span>
+                                    </div>
+                                </div>
+                                <div class="mock-budget-footer">
+                                    <span class="mock-emerald">Total: Rs. 28,500</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Step 3: Log Transaction -->
+                        <div class="preview-content" id="preview3">
+                            <div class="mock-app">
+                                <div class="mock-header">
+                                    <span class="mock-brand">PaisaTrack</span>
+                                    <span class="mock-tag">PRIVATE WEALTH</span>
+                                </div>
+                                <div class="mock-modal">
+                                    <h4 class="mock-card-title">Add Transaction</h4>
+                                    <div class="mock-type-toggle">
+                                        <span class="mock-type-btn active">Expense</span>
+                                        <span class="mock-type-btn">Income</span>
+                                    </div>
+                                    <div class="mock-input-group">
+                                        <label class="mock-label">AMOUNT</label>
+                                        <div class="mock-input emerald">Rs. 5,200</div>
+                                    </div>
+                                    <div class="mock-input-group">
+                                        <label class="mock-label">CATEGORY</label>
+                                        <div class="mock-input">🏠 Rent</div>
+                                    </div>
+                                    <div class="mock-input-group">
+                                        <label class="mock-label">MERCHANT</label>
+                                        <div class="mock-input">Koteshwor room rent</div>
+                                    </div>
+                                    <button class="mock-btn-primary">Add Transaction</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Step 4: Reports -->
+                        <div class="preview-content" id="preview4">
+                            <div class="mock-app">
+                                <div class="mock-header">
+                                    <span class="mock-brand">PaisaTrack</span>
+                                    <span class="mock-tag">PRIVATE WEALTH</span>
+                                </div>
+                                <div class="mock-page-title">Reports & Analytics</div>
+                                <div class="mock-charts">
+                                    <div class="mock-donut">
+                                        <div class="mock-donut-circle"></div>
+                                        <div class="mock-legend">
+                                            <span class="mock-legend-item">🍛 Food</span>
+                                            <span class="mock-legend-item">🚌 Transport</span>
+                                            <span class="mock-legend-item">🎬 Fun</span>
+                                        </div>
+                                    </div>
+                                    <div class="mock-bar-chart">
+                                        <div class="mock-bar" style="height: 40%"></div>
+                                        <div class="mock-bar" style="height: 65%"></div>
+                                        <div class="mock-bar" style="height: 55%"></div>
+                                        <div class="mock-bar active" style="height: 80%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Step 5: Dashboard -->
+                        <div class="preview-content" id="preview5">
+                            <div class="mock-app">
+                                <div class="mock-header">
+                                    <span class="mock-brand">PaisaTrack</span>
+                                    <span class="mock-tag">PRIVATE WEALTH</span>
+                                </div>
+                                <div class="mock-greeting">Good Evening, Nishant</div>
+                                <div class="mock-summary-grid">
+                                    <div class="mock-summary-card">
+                                        <span class="mock-summary-label">INCOME</span>
+                                        <span class="mock-summary-amount emerald">Rs. 45,000</span>
+                                    </div>
+                                    <div class="mock-summary-card">
+                                        <span class="mock-summary-label">EXPENSES</span>
+                                        <span class="mock-summary-amount coral">Rs. 28,500</span>
+                                    </div>
+                                    <div class="mock-summary-card">
+                                        <span class="mock-summary-label">BALANCE</span>
+                                        <span class="mock-summary-amount">Rs. 16,500</span>
+                                    </div>
+                                </div>
+                                <div class="mock-budget-ring">
+                                    <div class="mock-ring-circle"></div>
+                                    <span class="mock-ring-label">68% Used</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="preview-caption" id="previewCaption">
+                        Set up your private vault in seconds. Just a username and PIN — no email, no data shared.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: AUTH (LOGIN / SIGNUP) -->
+        <section class="landing-auth-section" id="authSection">
+            <div class="auth-container">
+                <!-- Login Form (Returning User) -->
+                <div class="auth-box" id="loginBox">
+                    <div class="auth-header">
+                        <h2 class="auth-title">ENTER YOUR VAULT</h2>
+                        <p class="auth-subtitle">Welcome back. Enter your credentials to unlock.</p>
+                    </div>
+                    <div class="auth-form">
+                        <div class="form-group">
+                            <label class="form-label">USERNAME</label>
+                            <input type="text" class="form-input" id="loginUser" placeholder="@username" autocomplete="username">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">PIN</label>
+                            <div class="pin-keypad">
+                                <div class="pin-dots-login" id="loginPinDots">
+                                    <span class="pin-dot-login" id="loginPinDot0"></span>
+                                    <span class="pin-dot-login" id="loginPinDot1"></span>
+                                    <span class="pin-dot-login" id="loginPinDot2"></span>
+                                    <span class="pin-dot-login" id="loginPinDot3"></span>
+                                </div>
+                                <div class="pin-keypad-grid">
+                                    <button class="keypad-btn" onclick="loginKeypad('1')">1</button>
+                                    <button class="keypad-btn" onclick="loginKeypad('2')">2</button>
+                                    <button class="keypad-btn" onclick="loginKeypad('3')">3</button>
+                                    <button class="keypad-btn" onclick="loginKeypad('4')">4</button>
+                                    <button class="keypad-btn" onclick="loginKeypad('5')">5</button>
+                                    <button class="keypad-btn" onclick="loginKeypad('6')">6</button>
+                                    <button class="keypad-btn" onclick="loginKeypad('7')">7</button>
+                                    <button class="keypad-btn" onclick="loginKeypad('8')">8</button>
+                                    <button class="keypad-btn" onclick="loginKeypad('9')">9</button>
+                                    <button class="keypad-btn keypad-clear" onclick="clearLoginPin()">CLR</button>
+                                    <button class="keypad-btn" onclick="loginKeypad('0')">0</button>
+                                    <button class="keypad-btn keypad-enter" onclick="submitLogin()">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="login-error" id="loginErrorMsg" style="display: none;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                            <span id="loginErrorText">Invalid username or PIN. Try again.</span>
+                        </div>
+                        <div class="login-lockout" id="loginLockout" style="display: none;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            <span>Too many attempts. Try again in <span id="lockoutTimer">30</span>s</span>
+                        </div>
+                    </div>
+                    <div class="auth-footer">
+                        <p>New to PaisaTrack? <button class="link-btn" onclick="showSignup()">Create your vault</button></p>
+                    </div>
+                </div>
+
+                <!-- Signup Form (New User) -->
+                <div class="auth-box" id="signupBox" style="display: none;">
+                    <div class="auth-header">
+                        <h2 class="auth-title">CREATE YOUR VAULT</h2>
+                        <p class="auth-subtitle">Set up your secure financial vault.</p>
+                    </div>
+                    <div class="auth-form">
+                        <div class="form-group">
+                            <label class="form-label">FULL NAME</label>
+                            <input type="text" class="form-input" id="signupName" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">USERNAME</label>
+                            <input type="text" class="form-input" id="signupUsername" placeholder="Choose a username">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">4-DIGIT PIN</label>
+                            <div class="pin-keypad">
+                                <div class="pin-dots-login" id="signupPinDots">
+                                    <span class="pin-dot-login" id="signupPinDot0"></span>
+                                    <span class="pin-dot-login" id="signupPinDot1"></span>
+                                    <span class="pin-dot-login" id="signupPinDot2"></span>
+                                    <span class="pin-dot-login" id="signupPinDot3"></span>
+                                </div>
+                                <div class="pin-keypad-grid">
+                                    <button class="keypad-btn" onclick="signupKeypad('1')">1</button>
+                                    <button class="keypad-btn" onclick="signupKeypad('2')">2</button>
+                                    <button class="keypad-btn" onclick="signupKeypad('3')">3</button>
+                                    <button class="keypad-btn" onclick="signupKeypad('4')">4</button>
+                                    <button class="keypad-btn" onclick="signupKeypad('5')">5</button>
+                                    <button class="keypad-btn" onclick="signupKeypad('6')">6</button>
+                                    <button class="keypad-btn" onclick="signupKeypad('7')">7</button>
+                                    <button class="keypad-btn" onclick="signupKeypad('8')">8</button>
+                                    <button class="keypad-btn" onclick="signupKeypad('9')">9</button>
+                                    <button class="keypad-btn keypad-clear" onclick="clearSignupPin()">CLR</button>
+                                    <button class="keypad-btn" onclick="signupKeypad('0')">0</button>
+                                    <button class="keypad-btn keypad-enter" onclick="goToConfirmPin()">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="auth-footer">
+                        <p>Already have a vault? <button class="link-btn" onclick="showLogin()">Enter your vault</button></p>
+                    </div>
+                </div>
+
+                <!-- Confirm PIN Form -->
+                <div class="auth-box" id="confirmPinBox" style="display: none;">
+                    <div class="auth-header">
+                        <h2 class="auth-title">CONFIRM YOUR PIN</h2>
+                        <p class="auth-subtitle">Enter your PIN again to confirm.</p>
+                    </div>
+                    <div class="auth-form">
+                        <div class="form-group">
+                            <label class="form-label">CONFIRM PIN</label>
+                            <div class="pin-keypad">
+                                <div class="pin-dots-login" id="confirmPinDots">
+                                    <span class="pin-dot-login" id="confirmPinDot0"></span>
+                                    <span class="pin-dot-login" id="confirmPinDot1"></span>
+                                    <span class="pin-dot-login" id="confirmPinDot2"></span>
+                                    <span class="pin-dot-login" id="confirmPinDot3"></span>
+                                </div>
+                                <div class="pin-keypad-grid">
+                                    <button class="keypad-btn" onclick="confirmKeypad('1')">1</button>
+                                    <button class="keypad-btn" onclick="confirmKeypad('2')">2</button>
+                                    <button class="keypad-btn" onclick="confirmKeypad('3')">3</button>
+                                    <button class="keypad-btn" onclick="confirmKeypad('4')">4</button>
+                                    <button class="keypad-btn" onclick="confirmKeypad('5')">5</button>
+                                    <button class="keypad-btn" onclick="confirmKeypad('6')">6</button>
+                                    <button class="keypad-btn" onclick="confirmKeypad('7')">7</button>
+                                    <button class="keypad-btn" onclick="confirmKeypad('8')">8</button>
+                                    <button class="keypad-btn" onclick="confirmKeypad('9')">9</button>
+                                    <button class="keypad-btn keypad-clear" onclick="clearConfirmPin()">CLR</button>
+                                    <button class="keypad-btn" onclick="confirmKeypad('0')">0</button>
+                                    <button class="keypad-btn keypad-enter" onclick="finishSignup()">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="login-error" id="confirmPinError" style="display: none;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                            <span>PINs don't match. Try again.</span>
+                        </div>
+                    </div>
+                    <div class="auth-footer">
+                        <p><button class="link-btn" onclick="backToSignupPin()">Go back</button> to enter PIN</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: FOOTER -->
+        <footer class="landing-footer">
+            <div class="footer-content">
+                <p class="footer-copyright">© 2026 PaisaTrack Systems — Made with ♥ in Kathmandu</p>
+                <div class="footer-links">
+                    <a href="#privacy" class="footer-link">Privacy Vault</a>
+                    <span class="footer-divider">|</span>
+                    <a href="#security" class="footer-link">Security Specs</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ==========================================
+         MAIN APP
+    ========================================== -->
+    <div class="app" id="mainApp">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <h1 class="brand-name">PaisaTrack</h1>
+                <p class="brand-tagline">PRIVATE WEALTH</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#dashboard" class="nav-item" data-route="dashboard">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#transactions" class="nav-item" data-route="transactions">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
+                    <span>Transactions</span>
+                </a>
+                <a href="#budget" class="nav-item" data-route="budget">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                    <span>Budget</span>
+                </a>
+                <a href="#reports" class="nav-item" data-route="reports">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    <span>Reports</span>
+                </a>
+                <a href="#settings" class="nav-item" data-route="settings">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            <button class="btn-primary sidebar-add" id="sidebarAddBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <span>Add Transaction</span>
+            </button>
+        </aside>
+
+        <!-- Main -->
+        <main class="main">
+            <!-- Top Bar -->
+            <header class="topbar">
+                <div class="search-wrapper">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <input type="text" class="search-input" placeholder="Search wealth records..." id="globalSearch">
+                </div>
+                <div class="topbar-actions">
+                    <button class="cal-toggle" id="calToggleBtn" title="Switch BS/AD calendar">
+                        <span id="calLabel">BS</span>
+                    </button>
+                    <button class="icon-btn notification-btn" aria-label="Notifications">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                        <span class="notification-dot"></span>
+                    </button>
+                    <button class="icon-btn" aria-label="Grid">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                    </button>
+                    <button class="avatar" id="profileAvatar" title="View Profile" onclick="showProfileModal()">N</button>
+                </div>
+            </header>
+
+            <!-- Page: Dashboard -->
+            <section class="page" id="page-dashboard">
+                <div class="page-header">
+                    <div>
+                        <p class="greeting" id="greeting">Good Evening, Nishant</p>
+                        <h2 class="page-title" id="dashboardMonth">Baishakh 2083</h2>
+                    </div>
+                    <button class="btn-primary btn-glow" id="dashAddBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                        <span>Add Transaction</span>
+                    </button>
+                </div>
+
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <div class="summary-head">
+                            <div class="summary-icon icon-emerald">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                            </div>
+                            <span class="badge badge-green" id="incomeTrend">↑ 12%</span>
+                        </div>
+                        <p class="summary-label">TOTAL INCOME</p>
+                        <p class="summary-amount"><span class="rs">Rs.</span><span id="totalIncome">0</span></p>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-head">
+                            <div class="summary-icon icon-coral">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>
+                            </div>
+                            <span class="badge badge-red" id="expenseTrend">↓ 5%</span>
+                        </div>
+                        <p class="summary-label">TOTAL EXPENSES</p>
+                        <p class="summary-amount"><span class="rs">Rs.</span><span id="totalExpenses">0</span></p>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-head">
+                            <div class="summary-icon icon-muted">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="21" x2="21" y2="21"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="5 6 12 3 19 6"/><line x1="4" y1="10" x2="4" y2="21"/><line x1="20" y1="10" x2="20" y2="21"/><line x1="8" y1="14" x2="8" y2="17"/><line x1="12" y1="14" x2="12" y2="17"/><line x1="16" y1="14" x2="16" y2="17"/></svg>
+                            </div>
+                            <span class="badge badge-muted" id="balanceStatus">Stable</span>
+                        </div>
+                        <p class="summary-label">BALANCE</p>
+                        <p class="summary-amount"><span class="rs">Rs.</span><span id="balance">0</span></p>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-head">
+                            <div class="summary-icon icon-emerald">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                            </div>
+                            <span class="badge badge-green" id="savingsBadge">✓ Target met</span>
+                        </div>
+                        <p class="summary-label">SAVINGS RATE</p>
+                        <p class="summary-amount"><span id="savingsRate">0</span>%</p>
+                    </div>
+                </div>
+
+                <div class="charts-row">
+                    <div class="card">
+                        <h3 class="card-title">Budget Utilization</h3>
+                        <div class="ring-wrapper">
+                            <canvas id="budgetRing" width="220" height="220"></canvas>
+                            <div class="ring-center">
+                                <p class="ring-percent" id="budgetPercent">0%</p>
+                                <p class="ring-label">UTILIZED</p>
+                            </div>
+                        </div>
+                        <p class="ring-footer">You have <span class="emerald" id="budgetRemaining">Rs. 0</span> remaining for the month.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-head">
+                            <h3 class="card-title">Expense Breakdown</h3>
+                            <a href="#reports" class="link-emerald">VIEW FULL REPORT →</a>
+                        </div>
+                        <div class="breakdown-wrapper">
+                            <div class="donut-wrapper">
+                                <canvas id="expenseDonut" width="220" height="220"></canvas>
+                                <div class="donut-center">
+                                    <p class="donut-label">TOP CATEGORY</p>
+                                    <p class="donut-value" id="topCategory">—</p>
+                                </div>
+                            </div>
+                            <div class="legend" id="expenseLegend"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-head">
+                        <h3 class="card-title">Recent Transactions</h3>
+                        <a href="#transactions" class="btn-ghost btn-small">SEE ALL ACTIVITIES</a>
+                    </div>
+                    <div class="tx-list" id="recentTxList"></div>
+                </div>
+            </section>
+
+            <!-- Page: Transactions -->
+            <section class="page hidden" id="page-transactions">
+                <div class="page-header">
+                    <div>
+                        <h2 class="page-title">Transactions</h2>
+                        <p class="subtitle"><span class="emerald bold" id="txCount">0</span> <span class="muted-upper">RECORDED MOVEMENTS</span></p>
+                    </div>
+                    <button class="btn-primary btn-glow" id="txAddBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                        <span>ADD NEW ENTRY</span>
+                    </button>
+                </div>
+
+                <div class="card filter-bar">
+                    <div class="filter-group">
+                        <label>SEARCH</label>
+                        <input type="text" id="filterSearch" placeholder="Merchants, tags...">
+                    </div>
+                    <div class="filter-group">
+                        <label>CATEGORY</label>
+                        <select id="filterCategory">
+                            <option value="">All Categories</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>TYPE</label>
+                        <div class="segmented" id="filterType">
+                            <button data-type="" class="active">ALL</button>
+                            <button data-type="income">IN</button>
+                            <button data-type="expense">OUT</button>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <label>PERIOD</label>
+                        <input type="month" id="filterMonth">
+                    </div>
+                    <button class="btn-ghost" id="filterReset">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+                        RESET
+                    </button>
+                </div>
+
+                <div class="card tx-table-card">
+                    <div class="tx-table-head">
+                        <span>DATE</span>
+                        <span>CATEGORY</span>
+                        <span>DESCRIPTION</span>
+                        <span class="ta-right">AMOUNT</span>
+                    </div>
+                    <div id="txTableBody"></div>
+                    <div class="pagination">
+                        <span class="pagination-info" id="paginationInfo">DISPLAYING 0 OF 0 ASSETS</span>
+                        <div class="pagination-controls" id="paginationControls"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page: Budget -->
+            <section class="page hidden" id="page-budget">
+                <div class="page-header">
+                    <h2 class="page-title">Monthly Budget</h2>
+                </div>
+                <div class="budget-controls">
+                    <button class="month-pill" id="budgetMonthBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                        <span id="budgetMonthLabel">April 2026</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                        <input type="month" id="budgetMonthInput" class="hidden-input">
+                    </button>
+                    <div class="budget-actions">
+                        <button class="btn-ghost" id="copyLastMonthBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            Copy Last Month
+                        </button>
+                        <button class="btn-primary" id="saveBudgetBtn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+                            Save Budget
+                        </button>
+                    </div>
+                </div>
+
+                <div class="budget-summary">
+                    <div class="summary-card">
+                        <p class="summary-label">TOTAL BUDGET</p>
+                        <p class="big-amount"><span class="rs">Rs.</span><span id="budgetTotal">0</span></p>
+                        <p class="subnote">→ No change from last month</p>
+                    </div>
+                    <div class="summary-card">
+                        <p class="summary-label">TOTAL SPENT</p>
+                        <p class="big-amount red"><span class="rs">Rs.</span><span id="budgetSpent">0</span></p>
+                        <div class="util-line">
+                            <span class="muted-upper">UTILIZATION</span>
+                            <span id="budgetUtilPct">0%</span>
+                        </div>
+                        <div class="progress"><div class="progress-fill" id="budgetUtilBar" style="width:0%"></div></div>
+                    </div>
+                    <div class="summary-card glow-emerald">
+                        <p class="summary-label">REMAINING</p>
+                        <p class="big-amount emerald"><span class="rs">Rs.</span><span id="budgetRemain">0</span></p>
+                        <p class="subnote" id="budgetSafeDays">Safe to spend for next 0 days</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="budget-table-head">
+                        <span>CATEGORY</span>
+                        <span>ALLOCATED BUDGET (RS.)</span>
+                        <span>UTILIZATION</span>
+                    </div>
+                    <div id="budgetCategoryList"></div>
+                    <button class="btn-ghost btn-add-cat" id="addCategoryBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                        Add New Category
+                    </button>
+                </div>
+
+                <footer class="page-footer">
+                    <span>© 2026 PAISATRACK PRIVATE WEALTH MANAGEMENT</span>
+                    <span>PRIVACY VAULT | SECURITY SPECS</span>
+                </footer>
+            </section>
+
+            <!-- Page: Reports -->
+            <section class="page hidden" id="page-reports">
+                <div class="page-header">
+                    <div>
+                        <p class="eyebrow">WEALTH INTELLIGENCE</p>
+                        <h2 class="page-title">Reports & Analytics</h2>
+                    </div>
+                    <div class="timeframe-wrap">
+                        <p class="muted-upper">TIMEFRAME</p>
+                        <div class="segmented" id="reportTimeframe">
+                            <button data-tf="1">1M</button>
+                            <button data-tf="3">3M</button>
+                            <button data-tf="6" class="active">6 Months</button>
+                            <button data-tf="12">1Y</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <div class="summary-head">
+                            <span class="summary-label">HIGHEST CATEGORY</span>
+                            <div class="summary-icon icon-emerald small">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                            </div>
+                        </div>
+                        <p class="big-amount" id="repHighCat">—</p>
+                        <p class="subnote"><span id="repHighPct">0%</span> of total spend <span class="muted-upper">STEADY</span></p>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-head">
+                            <span class="summary-label">AVG DAILY SPEND</span>
+                            <div class="summary-icon icon-muted small">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="3"/></svg>
+                            </div>
+                        </div>
+                        <p class="big-amount"><span class="rs">Rs.</span><span id="repAvgDaily">0</span></p>
+                        <p class="subnote"><span id="repAvgTrend">—</span></p>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-head">
+                            <span class="summary-label">BIGGEST TRANSACTION</span>
+                            <div class="summary-icon icon-emerald small">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                            </div>
+                        </div>
+                        <p class="big-amount"><span class="rs">Rs.</span><span id="repBigTx">0</span></p>
+                        <p class="subnote" id="repBigTxNote">—</p>
+                    </div>
+                    <div class="summary-card">
+                        <div class="summary-head">
+                            <span class="summary-label">MOM TREND</span>
+                            <div class="summary-icon icon-coral small">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                            </div>
+                        </div>
+                        <p class="big-amount" id="repMomPct">0%</p>
+                        <p class="subnote muted-upper" id="repMomLabel">STABLE</p>
+                    </div>
+                </div>
+
+                <div class="charts-grid">
+                    <div class="card">
+                        <h3 class="card-title">Expense Breakdown</h3>
+                        <div class="breakdown-wrapper">
+                            <div class="donut-wrapper">
+                                <canvas id="reportDonut" width="220" height="220"></canvas>
+                                <div class="donut-center">
+                                    <p class="donut-label">TOTAL</p>
+                                    <p class="donut-value" id="reportDonutTotal">Rs. 0</p>
+                                </div>
+                            </div>
+                            <div class="legend" id="reportLegend"></div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">Monthly Spending Trend</h3>
+                        <canvas id="monthlyTrendChart" height="220"></canvas>
+                    </div>
+                    <div class="card">
+                        <div class="card-head">
+                            <h3 class="card-title">Income vs Expenses</h3>
+                            <div class="legend-inline">
+                                <span class="legend-dot" style="background:#10B981"></span>INCOME
+                                <span class="legend-dot" style="background:#F87171"></span>EXPENSE
+                            </div>
+                        </div>
+                        <canvas id="incomeExpenseChart" height="220"></canvas>
+                    </div>
+                    <div class="card">
+                        <h3 class="card-title">Budget vs Actual</h3>
+                        <div id="budgetActualList"></div>
+                        <a href="#budget" class="link-muted">ADJUST BUDGETS ›</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Page: Settings -->
+            <section class="page hidden" id="page-settings">
+                <div class="page-header">
+                    <div>
+                        <h2 class="page-title emerald">System Settings</h2>
+                        <p class="subtitle">Manage your secure wealth vault environment, data exports, and interface preferences.</p>
+                    </div>
+                </div>
+
+                <div class="settings-grid">
+                    <div class="settings-col">
+                        <div class="card">
+                            <h3 class="card-title">
+                                <svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+                                Preferences
+                            </h3>
+                            <div class="pref-row">
+                                <div>
+                                    <p class="pref-label">Dark Mode</p>
+                                    <p class="pref-desc">Optimize the interface for low-light environments with our signature digital noir aesthetic.</p>
+                                </div>
+                                <label class="toggle">
+                                    <input type="checkbox" checked disabled>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            <div class="pref-row column">
+                                <div class="row-between">
+                                    <p class="pref-label">Currency Display</p>
+                                    <span id="currencyBadge" class="badge badge-green">ACTIVE</span>
+                                </div>
+                                <div class="currency-pills">
+                                    <button class="pill currency-btn" data-currency="USD">USD</button>
+                                    <button class="pill currency-btn" data-currency="NPR">NPR</button>
+                                    <button class="pill currency-btn" data-currency="EUR">EUR</button>
+                                    <button class="pill currency-btn" data-currency="INR">INR</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card about-card">
+                            <div class="about-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="21" x2="21" y2="21"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="5 6 12 3 19 6"/><line x1="4" y1="10" x2="4" y2="21"/><line x1="20" y1="10" x2="20" y2="21"/><line x1="8" y1="14" x2="8" y2="17"/><line x1="12" y1="14" x2="12" y2="17"/><line x1="16" y1="14" x2="16" y2="17"/></svg>
+                            </div>
+                            <div class="about-body">
+                                <h4>PaisaTrack</h4>
+                                <p class="emerald small">v1.0 • Stable Release</p>
+                                <p class="about-desc">Crafted for excellence in private financial management. Secure, sovereign, and serene.</p>
+                                <p class="muted-upper tiny">ARCHITECT</p>
+                                <p class="bold">Built by Nishant Gaire</p>
+                                <div class="social-row">
+                                    <button class="icon-btn-round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></button>
+                                    <button class="icon-btn-round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></button>
+                                    <button class="icon-btn-round"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></button>
+                                </div>
+                                <div class="about-footer">
+                                    <span class="muted-upper tiny">© 2026 PAISATRACK SYSTEMS</span>
+                                    <span class="muted-upper tiny">MADE WITH ♥ IN KATHMANDU</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-col">
+                        <div class="card">
+                            <h3 class="card-title">
+                                <svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                                Data Management
+                            </h3>
+                            <div class="data-action">
+                                <h4>Export Vault Data</h4>
+                                <p>Download your entire transaction history and budget analysis in a secure format.</p>
+                                <button class="btn-primary" id="exportCsvBtn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                    Export CSV
+                                </button>
+                            </div>
+                            <div class="data-action">
+                                <h4>Import Records</h4>
+                                <p>Bulk upload bank statements or legacy records to your wealth ledger.</p>
+                                <button class="btn-outline" id="importCsvBtn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                                    Import CSV
+                                </button>
+                                <input type="file" id="importCsvFile" accept=".csv" hidden>
+                            </div>
+                            <div class="data-action">
+                                <h4>Load Sample Data</h4>
+                                <p>Populate your vault with realistic sample transactions for demo purposes.</p>
+                                <button class="btn-outline" id="loadSampleBtn">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    Load Sample Data
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="card danger-card">
+                            <p class="danger-label"><svg class="inline-icon tiny-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>SECURITY ACTION</p>
+                            <h4>Wipe All Records</h4>
+                            <p>This action is irreversible. All transactions, budgets, and personalized insights will be permanently deleted from this device.</p>
+                            <button class="btn-danger" id="wipeDataBtn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                                Clear All Data
+                            </button>
+                        </div>
+
+                        <div class="card">
+                            <h4>Lock Vault</h4>
+                            <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 16px;">Lock your vault and return to the login screen.</p>
+                            <button class="btn-outline" id="logoutBtn" style="color: var(--amber); border-color: var(--amber);">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                                Lock Vault
+                            </button>
+                        </div>
+
+                        <div class="card vault-card">
+                            <div class="row-between">
+                                <span class="muted-upper tiny">LOCAL VAULT STORAGE</span>
+                                <span class="emerald bold" id="storageUsage">0 MB / 50 MB</span>
+                            </div>
+                            <div class="progress tiny"><div class="progress-fill" id="storageBar" style="width:0%"></div></div>
+                            <div class="row-between tiny-row">
+                                <span class="muted-upper tiny"><svg class="inline-icon tiny-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>AES-256 SOVEREIGN GRADE</span>
+                                <span class="badge badge-green">HEALTHY</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Mobile bottom nav -->
+        <nav class="mobile-nav">
+            <a href="#dashboard" class="mobile-nav-item" data-route="dashboard">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                <span>HOME</span>
+            </a>
+            <a href="#transactions" class="mobile-nav-item" data-route="transactions">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                <span>ACTIVITY</span>
+            </a>
+            <a href="#budget" class="mobile-nav-item" data-route="budget">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                <span>BUDGET</span>
+            </a>
+            <a href="#reports" class="mobile-nav-item" data-route="reports">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                <span>REPORTS</span>
+            </a>
+            <a href="#settings" class="mobile-nav-item" data-route="settings">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                <span>SETTINGS</span>
+            </a>
+        </nav>
+        <button class="mobile-fab" id="mobileFab">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+    </div>
+
+    <!-- Transaction Modal -->
+    <div class="modal-backdrop hidden" id="txModal">
+        <div class="modal">
+            <div class="modal-head">
+                <h3 id="txModalTitle">Add Transaction</h3>
+                <button class="icon-btn" id="txModalClose" aria-label="Close">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            <form id="txForm" class="modal-body">
+                <input type="hidden" id="txId">
+                <div class="type-toggle">
+                    <button type="button" class="type-btn type-expense active" data-type="expense">Expense</button>
+                    <button type="button" class="type-btn type-income" data-type="income">Income</button>
+                </div>
+                <div class="form-group">
+                    <label>Amount</label>
+                    <div class="amount-input">
+                        <span class="rs">Rs.</span>
+                        <input type="number" id="txAmount" min="0.01" step="0.01" required>
+                    </div>
+                    <p class="error" id="txAmountError"></p>
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <select id="txCategory" required></select>
+                </div>
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" id="txDate" required>
+                </div>
+                <div class="form-group">
+                    <label>Merchant / Title</label>
+                    <input type="text" id="txNote" placeholder="e.g. Bhatbhateni Supermarket" required>
+                </div>
+                <div class="form-group">
+                    <label>Description (optional)</label>
+                    <input type="text" id="txDescription" placeholder="What was this for?">
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-ghost" id="txCancelBtn">Cancel</button>
+                    <button type="submit" class="btn-primary" id="txSubmitBtn">Add Transaction</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Confirm Modal -->
+    <div class="modal-backdrop hidden" id="confirmModal">
+        <div class="modal small">
+            <div class="modal-head">
+                <h3 id="confirmTitle">Are you sure?</h3>
+            </div>
+            <div class="modal-body">
+                <p id="confirmMessage">This action cannot be undone.</p>
+                <div class="modal-actions">
+                    <button type="button" class="btn-ghost" id="confirmCancelBtn">Cancel</button>
+                    <button type="button" class="btn-danger" id="confirmOkBtn">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div class="modal-backdrop hidden" id="profileModal">
+        <div class="modal small">
+            <div class="modal-head">
+                <h3>Your Profile</h3>
+                <button class="icon-btn" onclick="closeProfileModal()" aria-label="Close">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="profile-avatar-large">
+                    <div class="profile-avatar-circle" id="profileAvatarLarge">N</div>
+                </div>
+                <div class="profile-info-list">
+                    <div class="profile-info-item">
+                        <span class="profile-info-label">NAME</span>
+                        <span class="profile-info-value" id="profileName">—</span>
+                    </div>
+                    <div class="profile-info-item">
+                        <span class="profile-info-label">USERNAME</span>
+                        <span class="profile-info-value" id="profileUsername">—</span>
+                    </div>
+                    <div class="profile-info-item">
+                        <span class="profile-info-label">LOCATION</span>
+                        <span class="profile-info-value" id="profileLocation">—</span>
+                    </div>
+                    <div class="profile-info-item">
+                        <span class="profile-info-label">CALENDAR</span>
+                        <span class="profile-info-value" id="profileCalendar">—</span>
+                    </div>
+                    <div class="profile-info-item">
+                        <span class="profile-info-label">VAULT STATUS</span>
+                        <span class="profile-info-value emerald">SECURE</span>
+                    </div>
+                </div>
+
+                <div class="profile-edit-section">
+                    <h4>Edit Profile</h4>
+                    <div class="profile-edit-form">
+                        <div class="profile-edit-group">
+                            <label>New Username</label>
+                            <input type="text" id="editUsername" placeholder="Enter new username">
+                        </div>
+                        <div class="profile-edit-group">
+                            <label>New PIN (4 digits)</label>
+                            <input type="password" id="editNewPin" placeholder="New PIN" maxlength="4">
+                        </div>
+                        <div class="profile-edit-group">
+                            <label>Confirm New PIN</label>
+                            <input type="password" id="editConfirmPin" placeholder="Confirm PIN" maxlength="4">
+                        </div>
+                        <div class="profile-edit-actions">
+                            <button class="btn-outline" onclick="saveProfile()">Save Changes</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-actions" style="margin-top: 24px;">
+                    <button type="button" class="btn-danger" onclick="logout()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                        Lock Vault
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Onboarding Modal -->
+    <div class="modal-backdrop" id="onboardingModal">
+        <div class="modal onboarding-modal">
+            <div class="onboarding-progress">
+                <div class="onboarding-step active" id="step1Indicator">1</div>
+                <div class="onboarding-line"></div>
+                <div class="onboarding-step" id="step2Indicator">2</div>
+                <div class="onboarding-line"></div>
+                <div class="onboarding-step" id="step3Indicator">3</div>
+                <div class="onboarding-line"></div>
+                <div class="onboarding-step" id="step4Indicator">4</div>
+                <div class="onboarding-line"></div>
+                <div class="onboarding-step" id="step5Indicator">5</div>
+                <div class="onboarding-line"></div>
+                <div class="onboarding-step" id="step6Indicator">6</div>
+            </div>
+
+            <!-- Step 1: Name -->
+            <div class="onboarding-step-content" id="step1">
+                <div class="onboarding-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <h2 class="onboarding-title">Welcome to PaisaTrack</h2>
+                <p class="onboarding-desc">Let's start by getting to know you.</p>
+                <div class="onboarding-input-group">
+                    <label class="login-label">Your Name</label>
+                    <input type="text" class="login-input" id="onboardingName" placeholder="Enter your full name">
+                </div>
+                <button class="login-btn" onclick="nextOnboardingStep(1)">Continue</button>
+            </div>
+
+            <!-- Step 2: Location -->
+            <div class="onboarding-step-content hidden" id="step2">
+                <div class="onboarding-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                <h2 class="onboarding-title">Where are you from?</h2>
+                <p class="onboarding-desc">Select your location in Nepal.</p>
+                <div class="onboarding-input-group">
+                    <label class="login-label">District / City</label>
+                    <select class="login-input" id="onboardingLocation">
+                        <option value="">Select your location</option>
+                        <option value="Kathmandu">Kathmandu</option>
+                        <option value="Lalitpur">Lalitpur</option>
+                        <option value="Bhaktapur">Bhaktapur</option>
+                        <option value="Pokhara">Pokhara</option>
+                        <option value="Biratnagar">Biratnagar</option>
+                        <option value="Birgunj">Birgunj</option>
+                        <option value="Butwal">Butwal</option>
+                        <option value="Janakpur">Janakpur</option>
+                        <option value="Dharan">Dharan</option>
+                        <option value="Hetauda">Hetauda</option>
+                        <option value="Mahendranagar">Mahendranagar</option>
+                        <option value="Dhangadhi">Dhangadhi</option>
+                        <option value="Itahari">Itahari</option>
+                        <option value="Kailali">Kailali</option>
+                        <option value="Kanchanpur">Kanchanpur</option>
+                        <option value="Nawalparasi">Nawalparasi</option>
+                        <option value="Rupandehi">Rupandehi</option>
+                        <option value="Kaski">Kaski</option>
+                        <option value="Chitwan">Chitwan</option>
+                        <option value="Makwanpur">Makwanpur</option>
+                        <option value="Gorkha">Gorkha</option>
+                        <option value="Tanahu">Tanahu</option>
+                        <option value="Syangja">Syangja</option>
+                        <option value="Kavrepalanchok">Kavrepalanchok</option>
+                        <option value="Nuwakot">Nuwakot</option>
+                        <option value="Dhading">Dhading</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <button class="login-btn" onclick="nextOnboardingStep(2)">Continue</button>
+            </div>
+
+            <!-- Step 3: Username -->
+            <div class="onboarding-step-content hidden" id="step3">
+                <div class="onboarding-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </div>
+                <h2 class="onboarding-title">Choose a Username</h2>
+                <p class="onboarding-desc">This will be your unique identity in the vault.</p>
+                <div class="onboarding-input-group">
+                    <label class="login-label">Username</label>
+                    <input type="text" class="login-input" id="onboardingUsername" placeholder="e.g., nishantg">
+                </div>
+                <button class="login-btn" onclick="nextOnboardingStep(3)">Continue</button>
+            </div>
+
+            <!-- Step 4: Calendar -->
+            <div class="onboarding-step-content hidden" id="step4">
+                <div class="onboarding-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                </div>
+                <h2 class="onboarding-title">Choose Your Calendar</h2>
+                <p class="onboarding-desc">Select your preferred date format.</p>
+                <div class="onboarding-input-group">
+                    <label class="login-label">Calendar System</label>
+                    <div class="calendar-options">
+                        <label class="calendar-option">
+                            <input type="radio" name="calendar" value="BS" id="calBS" checked>
+                            <span class="calendar-btn">Bikram Samwat (BS)</span>
+                        </label>
+                        <label class="calendar-option">
+                            <input type="radio" name="calendar" value="AD" id="calAD">
+                            <span class="calendar-btn">English (AD)</span>
+                        </label>
+                    </div>
+                </div>
+                <button class="login-btn" onclick="nextOnboardingStep(4)">Continue</button>
+            </div>
+
+            <!-- Step 5: PIN -->
+            <div class="onboarding-step-content hidden" id="step5">
+                <div class="onboarding-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <h2 class="onboarding-title">Create Your PIN</h2>
+                <p class="onboarding-desc">Choose a 4-digit PIN to secure your vault.</p>
+                <div class="pin-dots" id="onboardingPinDots">
+                    <div class="pin-dot" id="onboardingPinDot1"></div>
+                    <div class="pin-dot" id="onboardingPinDot2"></div>
+                    <div class="pin-dot" id="onboardingPinDot3"></div>
+                    <div class="pin-dot" id="onboardingPinDot4"></div>
+                </div>
+                <div class="pin-display" id="onboardingPinDisplay">____</div>
+                <p class="pin-hint">Enter 4 digits</p>
+                <div class="pin-pad">
+                    <button class="pin-btn" onclick="addOnboardingPinDigit('1')">1</button>
+                    <button class="pin-btn" onclick="addOnboardingPinDigit('2')">2</button>
+                    <button class="pin-btn" onclick="addOnboardingPinDigit('3')">3</button>
+                    <button class="pin-btn" onclick="addOnboardingPinDigit('4')">4</button>
+                    <button class="pin-btn" onclick="addOnboardingPinDigit('5')">5</button>
+                    <button class="pin-btn" onclick="addOnboardingPinDigit('6')">6</button>
+                    <button class="pin-btn" onclick="addOnboardingPinDigit('7')">7</button>
+                    <button class="pin-btn" onclick="addOnboardingPinDigit('8')">8</button>
+                    <button class="pin-btn" onclick="addOnboardingPinDigit('9')">9</button>
+                    <button class="pin-btn clear" onclick="clearOnboardingPin()">CLEAR</button>
+                    <button class="pin-btn" onclick="goToConfirmPin()">0</button>
+                    <button class="pin-btn" onclick="goToConfirmPin()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 6: Confirm PIN -->
+            <div class="onboarding-step-content hidden" id="step6">
+                <div class="onboarding-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                </div>
+                <h2 class="onboarding-title">Confirm Your PIN</h2>
+                <p class="onboarding-desc">Enter your PIN again to confirm.</p>
+                <div class="pin-dots" id="confirmPinDots">
+                    <div class="pin-dot" id="confirmPinDot1"></div>
+                    <div class="pin-dot" id="confirmPinDot2"></div>
+                    <div class="pin-dot" id="confirmPinDot3"></div>
+                    <div class="pin-dot" id="confirmPinDot4"></div>
+                </div>
+                <div class="pin-display" id="confirmPinDisplay">____</div>
+                <p class="pin-error" id="confirmPinError" style="display: none;">PINs don't match. Try again.</p>
+                <div class="pin-pad">
+                    <button class="pin-btn" onclick="addConfirmPinDigit('1')">1</button>
+                    <button class="pin-btn" onclick="addConfirmPinDigit('2')">2</button>
+                    <button class="pin-btn" onclick="addConfirmPinDigit('3')">3</button>
+                    <button class="pin-btn" onclick="addConfirmPinDigit('4')">4</button>
+                    <button class="pin-btn" onclick="addConfirmPinDigit('5')">5</button>
+                    <button class="pin-btn" onclick="addConfirmPinDigit('6')">6</button>
+                    <button class="pin-btn" onclick="addConfirmPinDigit('7')">7</button>
+                    <button class="pin-btn" onclick="addConfirmPinDigit('8')">8</button>
+                    <button class="pin-btn" onclick="addConfirmPinDigit('9')">9</button>
+                    <button class="pin-btn clear" onclick="clearConfirmPin()">CLEAR</button>
+                    <button class="pin-btn" onclick="addConfirmPinDigit('0')">0</button>
+                    <button class="pin-btn" onclick="finishOnboarding()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
