@@ -544,51 +544,7 @@ function updateCurrencyButtons() {
     });
 }
 
-// ---------- Auth Functions ----------
-function getStoredAuth() {
-    try {
-        return JSON.parse(localStorage.getItem(AUTH_STORAGE));
-    } catch { return null; }
-}
-
-function setStoredAuth(auth) {
-    localStorage.setItem(AUTH_STORAGE, JSON.stringify(auth));
-}
-
-function isAuthenticated() {
-    const auth = getStoredAuth();
-    return auth && auth.loggedIn === true;
-}
-
-function getUserProfile() {
-    const auth = getStoredAuth();
-    return auth ? { name: auth.name, username: auth.username, location: auth.location } : null;
-}
-
-function checkAuth() {
-    const auth = getStoredAuth();
-    if (!auth) {
-        // First time user - show onboarding
-        showLanding();
-    } else if (!auth.loggedIn) {
-        // Existing user but not logged in - show landing with login
-        showLanding();
-    } else {
-        // Logged in user - show app
-        hideLanding();
-    }
-}
-
-function showLanding() {
-    document.body.classList.add('show-landing');
-    document.getElementById('landingPage').style.display = 'block';
-}
-
-function hideLanding() {
-    document.body.classList.remove('show-landing');
-    document.getElementById('landingPage').style.display = 'none';
-}
-
+// ---------- Utils ----------
 function uid() {
     return `tx_${Date.now()}_${Math.floor(Math.random() * 1000)}`;
 }
@@ -1480,9 +1436,9 @@ async function wipeAllData() {
 function submitPin() {
     const auth = getStoredAuth();
 
-    if (!auth || !auth.loggedIn) {
+    if (!auth || !auth.isLoggedIn) {
         // First time setup - save the PIN
-        setStoredAuth({ loggedIn: true, pin: currentPin });
+        setStoredAuth({ isLoggedIn: true, pin: currentPin });
         hideLogin();
         hideLanding();
         toast('Vault created successfully');
@@ -1491,7 +1447,7 @@ function submitPin() {
 
     // Normal login
     if (auth.pin === currentPin) {
-        setStoredAuth({ loggedIn: true, pin: currentPin });
+        setStoredAuth({ isLoggedIn: true, pin: currentPin });
         hideLogin();
         hideLanding();
         toast('Welcome back');
@@ -1509,14 +1465,14 @@ function submitPassword(e) {
 
     const auth = getStoredAuth();
 
-    if (!auth || !auth.loggedIn) {
+    if (!auth || !auth.isLoggedIn) {
         // First time setup - save credentials
         if (!username || !password) {
             document.getElementById('loginError').textContent = 'Please fill all fields';
             document.getElementById('loginError').classList.add('show');
             return;
         }
-        setStoredAuth({ loggedIn: true, username, password });
+        setStoredAuth({ isLoggedIn: true, username, password });
         hideLogin();
         hideLanding();
         toast('Vault created successfully');
@@ -1525,7 +1481,7 @@ function submitPassword(e) {
 
     // Normal login
     if (auth.username === username && auth.password === password) {
-        setStoredAuth({ loggedIn: true, username, password });
+        setStoredAuth({ isLoggedIn: true, username, password });
         hideLogin();
         hideLanding();
         toast('Welcome back');
@@ -1692,7 +1648,7 @@ function finishOnboarding() {
 
     // Save user data
     setStoredAuth({
-        loggedIn: true,
+        isLoggedIn: true,
         name: onboardingData.name,
         username: onboardingData.username,
         location: onboardingData.location,
