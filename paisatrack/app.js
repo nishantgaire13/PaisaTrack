@@ -1614,6 +1614,9 @@ function addOnboardingPinDigit(digit) {
     if (onboardingPin.length >= 4) return;
     onboardingPin += digit;
     updateOnboardingPinDisplay();
+    if (onboardingPin.length === 4) {
+        setTimeout(goToConfirmPin, 300);
+    }
 }
 
 function clearOnboardingPin() {
