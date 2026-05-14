@@ -39,6 +39,13 @@ const INCOME_CATEGORIES = [
 const ALL_CATEGORIES = [...EXPENSE_CATEGORIES, ...INCOME_CATEGORIES];
 const CHART_COLORS = ['#10B981', '#14B8A6', '#8B5CF6', '#FB7185', '#FBBF24', '#22D3EE', '#34D399', '#F472B6'];
 
+const CURRENCY_SYMBOLS = {
+    USD: '$',
+    NPR: 'Rs.',
+    EUR: '€',
+    INR: '₹'
+};
+
 // ---------- Auth Constants ----------
 const AUTH_STORAGE = 'paisatrack_auth';
 
