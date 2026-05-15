@@ -2399,6 +2399,18 @@ function init() {
         }
         loadSampleData();
     });
+
+    // Hide sticky CTA when auth section is visible on landing page
+    const authSection = document.getElementById('authSection');
+    const mobileCta = document.getElementById('landingMobileCta');
+    if (authSection && mobileCta) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (mobileCta) mobileCta.style.opacity = entry.isIntersecting ? '0' : '1';
+            });
+        }, { threshold: 0.1 });
+        observer.observe(authSection);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', init);
