@@ -531,9 +531,9 @@ function calendarLabel() { return state.settings.calendar === 'BS' ? 'BS' : 'AD'
 
 function applyTheme(theme) {
     if (theme === 'light') {
-        document.body.classList.add('light-mode');
+        document.body.classList.add('theme-light');
     } else {
-        document.body.classList.remove('light-mode');
+        document.body.classList.remove('theme-light');
     }
     const btn = document.getElementById('themeToggleBtn');
     if (!btn) return;
