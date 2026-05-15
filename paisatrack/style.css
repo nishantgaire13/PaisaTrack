@@ -3567,3 +3567,115 @@ body:not(.show-landing) .landing-page { display: none; }
         background: rgba(0, 0, 0, 0.4);
     }
 }
+
+/* ============================================================================
+   LIGHT MODE
+   ============================================================================ */
+
+body.light-mode {
+    --bg: #F5F5F0;
+    --bg-secondary: #EEEEE8;
+    --card-bg: #FFFFFF;
+    --card-bg-2: #F8F8F4;
+    --border: #E0E0D8;
+    --border-light: #D0D0C8;
+    --text: #1A1A1A;
+    --text-secondary: #4A4A4A;
+    --text-muted: #6A6A6A;
+    --text-dim: #999990;
+}
+
+body.light-mode .sidebar {
+    background: #1A1A2E;
+    border-right-color: #2A2A4E;
+}
+
+body.light-mode .sidebar .nav-item { color: #A0A0C0; }
+body.light-mode .sidebar .nav-item:hover { background: rgba(255,255,255,0.08); color: #E0E0F0; }
+body.light-mode .sidebar .nav-item.active { background: rgba(16,185,129,0.15); color: #10B981; }
+body.light-mode .sidebar .brand-name { color: #FFFFFF; }
+body.light-mode .sidebar .brand-tagline { color: #10B981; }
+body.light-mode .sidebar .nav-icon { color: #6060A0; }
+body.light-mode .sidebar .nav-item.active .nav-icon { color: #10B981; }
+
+body.light-mode .topbar {
+    background: #FFFFFF;
+    border-bottom-color: #E0E0D8;
+}
+
+body.light-mode .search-input {
+    background: #F0F0EA;
+    border-color: #D0D0C8;
+    color: #1A1A1A;
+}
+
+body.light-mode .search-input::placeholder { color: #AAAAAA; }
+
+body.light-mode .modal {
+    background: #FFFFFF;
+    border-color: #E0E0D8;
+}
+
+body.light-mode .modal-head {
+    background: #FFFFFF;
+    border-bottom-color: #E0E0D8;
+}
+
+body.light-mode .modal-body input,
+body.light-mode .modal-body select,
+body.light-mode .form-input,
+body.light-mode .budget-input {
+    background: #F0F0EA;
+    border-color: #D0D0C8;
+    color: #1A1A1A;
+}
+
+body.light-mode .tx-table-row:hover { background: #F0F0EA; }
+
+body.light-mode .progress { background: #E0E0D8; }
+
+body.light-mode .segmented {
+    background: #F0F0EA;
+    border-color: #D0D0C8;
+}
+
+body.light-mode .filter-group input,
+body.light-mode .filter-group select {
+    background: #F0F0EA;
+    border-color: #D0D0C8;
+    color: #1A1A1A;
+}
+
+body.light-mode .keypad-btn {
+    background: #F0F0EA;
+    border-color: #D0D0C8;
+    color: #1A1A1A;
+}
+
+body.light-mode .month-nav-btn,
+body.light-mode .month-pill {
+    background: #F0F0EA;
+    border-color: #D0D0C8;
+}
+
+body.light-mode .month-selector-dropdown {
+    background: #FFFFFF;
+    border-color: #E0E0D8;
+}
+
+body.light-mode .month-selector-btn {
+    background: #F0F0EA;
+    border-color: #D0D0C8;
+    color: #1A1A1A;
+}
+
+/* Landing page always stays dark regardless of light mode */
+body.light-mode .landing-page,
+body.light-mode .landing-page * {
+    /* Reset to dark theme variables for landing page */
+}
+
+/* Keep emerald, amber, coral brand colors unchanged in light mode */
+body.light-mode .btn-primary { background: #10B981; color: #000; }
+body.light-mode .nav-item.active,
+body.light-mode .emerald { color: #10B981; }

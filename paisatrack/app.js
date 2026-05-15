@@ -528,6 +528,31 @@ function formatMonthDisplay(monthKeyStr) {
 }
 
 function calendarLabel() { return state.settings.calendar === 'BS' ? 'BS' : 'AD'; }
+
+function applyTheme(theme) {
+    if (theme === 'light') {
+        document.body.classList.add('light-mode');
+    } else {
+        document.body.classList.remove('light-mode');
+    }
+    const btn = document.getElementById('themeToggleBtn');
+    if (!btn) return;
+    if (theme === 'light') {
+        btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+        btn.setAttribute('aria-label', 'Switch to dark mode');
+    } else {
+        btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+        btn.setAttribute('aria-label', 'Switch to light mode');
+    }
+}
+
+function toggleTheme() {
+    const newTheme = state.settings.theme === 'light' ? 'dark' : 'light';
+    state.settings.theme = newTheme;
+    localStorage.setItem(STORAGE.SETTINGS, JSON.stringify(state.settings));
+    applyTheme(newTheme);
+}
+
 function toggleCalendar() {
     state.settings.calendar = state.settings.calendar === 'BS' ? 'AD' : 'BS';
     localStorage.setItem(STORAGE.SETTINGS, JSON.stringify(state.settings));
@@ -2179,6 +2204,9 @@ function init() {
     // Auth check - show landing/login if not logged in
     checkAuth();
 
+    // Apply theme based on settings
+    applyTheme(state.settings.theme || 'dark');
+
     // Update avatar if user is logged in
     const auth = getStoredAuth();
     if (auth && auth.isLoggedIn) {
@@ -2329,6 +2357,9 @@ function init() {
 
     // Initial state
     updateBudgetMonthNav();
+
+    // Theme toggle
+    document.getElementById('themeToggleBtn').addEventListener('click', toggleTheme);
 
     // Calendar toggle
     document.getElementById('calToggleBtn').addEventListener('click', () => {
